@@ -7,7 +7,7 @@ public class Simulation {
 		int column = scanner.nextInt();
 		Character matrix[][] = new Character[row][column];
 		String place = "";
-		
+
 		for (int i = 0; i < row; i++) {
 			String str = scanner.next();
 			for (int j = 0; j < column; j++) {
@@ -17,10 +17,10 @@ public class Simulation {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
 				if (matrix[i][j] == '@') {
-					int nextRow = i+1;
-					int nextColumn = j+1;
-					place+= nextRow;
-					place+= nextColumn;
+					int nextRow = i + 1;
+					int nextColumn = j + 1;
+					place += nextRow;
+					place += nextColumn;
 				}
 			}
 		}
