@@ -45,10 +45,6 @@ for ( int i = 0; i < (places.length()); i = i + 2) {
 		
 	}
 	
-	public static void main(String[] args) {
-		Search s = new Search("1223313233");
-		s.printResult();
-	}
 	
 	
 
