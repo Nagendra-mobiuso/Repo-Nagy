@@ -26,6 +26,6 @@ public class Simulation {
 		}
 		System.out.println(place);
 		Search position = new Search(place);
-		position.printResult();
+		position.livingorg();
 	}
 }
