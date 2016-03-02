@@ -24,8 +24,21 @@ public class Simulation {
 				}
 			}
 		}
-		System.out.println(place);
-		Search position = new Search(place);
+
+		int nextGenReq = scanner.nextInt();
+
+		//System.out.println(place);
+
+		Search position = new Search(place,row);
+		position.setLocation();
 		position.printResult();
+		System.out.println("Location Set Go...");
+		for (int i = 0; i < nextGenReq; i++) {
+			position.test();
+			position.printResult();
+			System.out.println("Next..Gen"+(i+1));
+		}	
+		System.out.println("Final Living Organism are : "+position.livingorg());
+		scanner.close();
 	}
 }
