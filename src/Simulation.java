@@ -25,13 +25,9 @@ public class Simulation {
 			}
 		}
 		int nextGenReq = scanner.nextInt();
-
-		//System.out.println(place);
-
 		Search position = new Search(place,row);
 		position.setLocation();
 		position.printResult();
-		System.out.println("Location Set Go...");
 		for (int i = 0; i < nextGenReq; i++) {
 			position.test();
 			position.printResult();
