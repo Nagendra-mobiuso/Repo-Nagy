@@ -7,7 +7,6 @@ public class Simulation {
 		int column = scanner.nextInt();
 		Character matrix[][] = new Character[row][column];
 		String place = "";
-
 		for (int i = 0; i < row; i++) {
 			String str = scanner.next();
 			for (int j = 0; j < column; j++) {
@@ -17,27 +16,33 @@ public class Simulation {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
 				if (matrix[i][j] == '@') {
-					int nextRow = i + 1;
-					int nextColumn = j + 1;
+					int nextRow = i;
+					int nextColumn = j;
 					place += nextRow;
 					place += nextColumn;
 				}
 			}
 		}
 		int nextGenReq = scanner.nextInt();
-		Search position = new Search(place,row);
-		position.setLocation();
-		position.printResult();
+		scanner.close();
+		simulate(row, place, nextGenReq);
+		
+	}
 
-		//Grid grid = new Grid(place, row);
-		//RulesOfGameOfLife rules = new RulesOfGameOfLife(row);
+	private static void simulate(int row, String place, int nextGenReq) {
+		Grid grid = new Grid(place, row);
+		NextGeneration rules = new RulesOfGameOfLife2(row);
 		System.out.println("Location Set Go...");
+		performGenerations(nextGenReq, grid, rules);
+		System.out.println("Final Living Organism are : "
+				+ grid.countLivingOrganisms());
+	}
 
+	private static void performGenerations(int nextGenReq, Grid grid,
+			NextGeneration rules) {
 		for (int i = 0; i < nextGenReq; i++) {
-			//rules.nextgen(grid);
+			rules.nextGeneration(grid);
 			System.out.println("Next..Gen" + (i + 1));
 		}
-		//System.out.println("Final Living Organism are : " + grid.livingorg());
-		scanner.close();
 	}
 }
